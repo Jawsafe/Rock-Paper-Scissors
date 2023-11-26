@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --color-rock: rgba(236, 121, 55, 0.8);
+    --color-paper: rgb(112, 56, 216, 0.8);
+    --color-scissors: rgb(64, 214, 119, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+/* Header */
+#header {
+    padding: 1.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #f3f3f3;
+    position: fixed;
+    width: 100%;
+}
+
+#header .red {
+    color: rgba(236, 121, 55, 0.8);
+    margin: 0 0.5rem;
+
+}
+
+#header .blue {
+    color: rgb(112, 56, 216, 0.8);
+    margin: 0 0.5rem;
+
+}
+
+#header .green {
+    color: rgb(64, 214, 119, 0.8);
+    margin: 0 0.5rem;
+}
+
+/* Main - container*/
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f3f3f3;
+    padding: 10% 5% 5%;
+}
+
+main #container {
+    padding: 2%;
+    background-color: white;
+    width: 40%;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Display */
+#container.start .user-hand{
+    transform-origin: left;
+    animation: userShake 0.7s ease infinite;
+}
+
+@keyframes userShake {
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+#container.start .cpu-hand{
+    transform-origin: right;
+    animation: cpuShake 0.7s ease infinite;
+}
+
+@keyframes cpuShake {
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+.hand-result {
+    width: 100%;
+}
+
+.hand {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.hand img {
+    width: 100px;
+    padding: 10% 5%;
+    border-radius: 20px;
+}
+
+.rock {
+    /* background-color: var(--color-rock); */
+    background-color: transparent;
+}
+
+.paper {
+    /* background-color: var(--color-paper); */
+    background-color: transparent;
+}
+
+.scissors {
+    /* background-color: var(--color-scissors); */
+    background-color: transparent;
+}
+
+.hand .user-hand .rock {
+    transform: rotate(90deg) rotateY(180deg);
+}
+
+.hand .cpu-hand .rock {
+    transform: rotate(-90deg);
+}
+
+.hand .user-hand .paper {
+    transform: rotate(90deg) rotateY(180deg);
+}
+
+.hand .cpu-hand .paper {
+    transform: rotate(-90deg);
+}
+
+.hand .user-hand .scissors {
+    transform: rotate(0deg);
+}
+
+.hand .cpu-hand .scissors {
+    transform: rotate(0deg) rotateY(180deg);
+}
+
+.result {
+    text-align: center;
+    font-size: 2rem;
+    margin: 25px 5px;
+    color: rgb(107, 113, 236); 
+    font-weight: 600;
+}
+
+/* Selection */
+.select-hand {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin: 10px 5px 0;
+}
+
+#container.start .select-hand {
+    pointer-events: none;
+}
+
+.select-hand img {
+    width: 65px;
+    padding: 10% 5%;
+    border-radius: 10px;
+    border: 2px solid rgb(107, 113, 236);
+
+}
+
+.select-hand p {
+    font-weight: 600;
+    margin: 10px 0 0;
+    color: rgb(107, 113, 236); 
+}
+
+.option-hand {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.option-hand:hover {
+    opacity: 1;
+}
+
+.option-hand.active {
+    opacity: 1;
+}
